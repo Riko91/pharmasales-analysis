@@ -18,10 +18,20 @@ Najprej sem CSV uvozil v staging tabelo, kjer so vsi stolpci besedilo. Nato sem
 naredil zvezdno shemo: tabelo dejstev `fact_sales` ter dimenziji `dim_date` in `dim_atc`.
 
 Podatki so bili v "širokem" formatu (vsaka skupina zdravil svoj stolpec), zato sem jih
-z `UNION ALL` pretvoril v dolgi format. Ena vrstica je prodaja ene skupine v eni uri.
+z `UNION ALL` pretvoril v dolgi format – ena vrstica je prodaja ene skupine v eni uri.
 Tako je bilo kasneje v Power BI veliko lažje filtrirati in primerjati skupine.
 
-SQL skripte so v mapi `sql`, po vrsti od 01 do 05.
+Skripte v mapi `SQL`:
+
+- `01_staging.sql` – staging tabela za surove podatke
+- `02_dim_atc.sql` – dimenzija skupin zdravil
+- `03_dim_date.sql` – časovna dimenzija
+- `04_fact_sales.sql` – tabela dejstev (pretvorba v dolgi format)
+- `upit1.sql` – prodaja po skupinah zdravil
+- `upit2.sql` – prodaja po letih
+- `upit3.sql` – prodaja po letnih časih za izbrano skupino
+- `upit4.sql` – prodaja po urah dneva
+
 V Power BI sem naredil dve strani: pregled prodaje in sezonskost.
 
 ## Kaj sem ugotovil
@@ -44,6 +54,15 @@ V Power BI sem naredil dve strani: pregled prodaje in sezonskost.
 ## Orodja
 
 PostgreSQL, pgAdmin, Power BI (DAX)
+
+## Zagon
+
+1. V PostgreSQL ustvari bazo `pharma_sales`.
+2. Zaženi `SQL/01_staging.sql`, nato v pgAdmin uvozi `saleshourly.csv`
+   (desni klik na tabelo → Import/Export Data, Header vklopljen).
+3. Po vrsti zaženi `02`, `03` in `04`.
+4. Analitične poizvedbe so v `upit1.sql`–`upit4.sql`.
+5. Odpri `pharma-dashboard.pbix` v Power BI.
 
 ---
 Ivan Đukić, magistrski študij Informatika v sodobni družbi, FIŠ Novo mesto
