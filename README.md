@@ -59,7 +59,7 @@ PostgreSQL, pgAdmin, Power BI (DAX)
 
 1. V PostgreSQL ustvari bazo `pharma_sales`.
 2. Zaženi `SQL/01_staging.sql`, nato v pgAdmin uvozi `saleshourly.csv`
-   (desni klik na tabelo → Import/Export Data, Header vklopljen).
+   (desni klik na tabelo: Import/Export Data, Header vklopljen).
 3. Po vrsti zaženi `02`, `03` in `04`.
 4. Analitične poizvedbe so v `upit1.sql`–`upit4.sql`.
 5. Odpri `pharma-dashboard.pbix` v Power BI.
