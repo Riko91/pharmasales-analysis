@@ -18,7 +18,7 @@ Najprej sem CSV uvozil v staging tabelo, kjer so vsi stolpci besedilo. Nato sem
 naredil zvezdno shemo: tabelo dejstev `fact_sales` ter dimenziji `dim_date` in `dim_atc`.
 
 Podatki so bili v "širokem" formatu (vsaka skupina zdravil svoj stolpec), zato sem jih
-z `UNION ALL` pretvoril v dolgi format – ena vrstica je prodaja ene skupine v eni uri.
+z `UNION ALL` pretvoril v dolgi format. Ena vrstica je prodaja ene skupine v eni uri.
 Tako je bilo kasneje v Power BI veliko lažje filtrirati in primerjati skupine.
 
 Skripte v mapi `SQL`:
